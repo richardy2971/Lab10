@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-NLPCJZM');</script>
+<!-- End Google Tag Manager -->
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +25,11 @@
   <link rel="icon" href="./styles/favicon.ico">
 </head>
 
-<body>
+<body >
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLPCJZM" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header>
     <h1>Journal Entries</h1>
     <img src="./styles/settings.svg" alt="settings" width=40 height=40>
@@ -34,44 +49,42 @@
   <!-- Main Script -->
   <script src="./scripts/script.js" type="module"></script>
 
-
-    <!-- Some polyfills to ensure we have promises. -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-    <!-- Split SDK loaded via CDN. -->
-    <script src="https://cdn.split.io/sdk/split-10.15.6.js"></script>
-    <!-- Our custom script. -->
-    <script type="text/javascript">
-      (function () {
-        // We will write code here.
-        var factory = splitio({
-          core: {
-            authorizationKey: 'mv4seauk0n731lbmp92td7e0d744ao6bp7sm',
-            key: Math.random()
-          }
-        });
-        var client = factory.client();
-
-        client.on(client.Event.SDK_READY, function () {
-          var treatment = client.getTreatment('split');
-
-          if (treatment === 'on') {
-            // Insert code for on treatment
-            document.querySelector("main").classList.add("double-column");
-          } else if (treatment === 'off') {
-            // Insert code for off treatment
-            document.querySelector("main").classList.remove("double-column");
-          } else {
-            // Insert code for control treatment
-          }
-          // We will write the following code here
-          client.destroy().then(function () {
-            // Your data is successfully flushed.
+    <!-- Split script -->                  
+   <!-- Some polyfills to ensure we have promises. -->
+   <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+   <!-- Split SDK loaded via CDN. -->
+   <script src="https://cdn.split.io/sdk/split-10.15.6.js"></script>
+     <!-- Our custom script. -->
+  <script type="text/javascript">
+    (function() {
+      // We will write code here.
+      var factory = splitio({
+        core: {
+          authorizationKey: 'c1ksf93m99hpq1nhha6bq6g9dpdq18r0q2a5',                                   
+          // 2qtomf59naq4bib4kkegdg0p21i2ls74qsva
+          key:  Math.random()
+          //'CUSTOMER_ID' 
+        }
+      });
+       var client = factory.client();
+          client.on(client.Event.SDK_READY, function () {
+            // We will write the following code here
+            var treatment = client.getTreatment('double-column');
+            if (treatment === 'on') {
+              // Insert code for on treatment
+              document.getElementsByTagName('main')[0].classList.add('double-column');
+            } else if (treatment === 'off') {
+              // Insert code for off treatment
+              document.getElementsByTagName('main')[0].classList.remove('double-column');
+            } else {
+              // Insert code for control treatment
+            }
+            client.destroy().then(function () {
+              // Your data is successfully flushed.
+            });
           });
-
-        });
-      })();
-    </script>
-
-</body>
-
-</html>
+        })();
+      </script>
+  </body>
+  
+  </html>

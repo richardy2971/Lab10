@@ -45,14 +45,14 @@
             // We will write code here.
             var factory = splitio({
                 core: {
-                    authorizationKey: 'mv4seauk0n731lbmp92td7e0d744ao6bp7sm',
+                    authorizationKey: 'c1ksf93m99hpq1nhha6bq6g9dpdq18r0q2a5',
                     key: Math.random()
                 }
             });
             var client = factory.client();
 
             client.on(client.Event.SDK_READY, function () {
-                var treatment = client.getTreatment('background_color');
+                var treatment = client.getTreatment('Different_Background');
 
                 if (treatment === 'on') {
                     // Insert code for on treatment
